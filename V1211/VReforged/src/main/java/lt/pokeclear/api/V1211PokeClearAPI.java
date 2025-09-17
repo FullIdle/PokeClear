@@ -1,4 +1,4 @@
-package pokeclear.api;
+package lt.pokeclear.api;
 
 import com.pixelmonmod.pixelmon.api.pokemon.Pokemon;
 import com.pixelmonmod.pixelmon.api.pokemon.species.Species;
