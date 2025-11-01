@@ -9,13 +9,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/V1122" />
-            <option value="$PROJECT_DIR$/V1165" />
-            <option value="$PROJECT_DIR$/V1202" />
-            <option value="$PROJECT_DIR$/V1211" />
-            <option value="$PROJECT_DIR$/V1211/VCobblemon" />
-            <option value="$PROJECT_DIR$/V1211/VReforged" />
-            <option value="$PROJECT_DIR$/common" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="true" />

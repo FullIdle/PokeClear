@@ -4,6 +4,10 @@ import org.bukkit.entity.Entity;
 
 import java.util.UUID;
 
+/**
+ * 旧版本提供的东西
+ * @version 1.7.3r
+ */
 public abstract class PokeClearAPI<SPECIES,POKEMON,POKE_ENTITY> {
     public abstract SPECIES[] allSpecies();
     public abstract boolean isUltraBeast(SPECIES species);

@@ -2,61 +2,46 @@ plugins {
     id 'java'
 }
 
-group = 'lt.pokeclear.Main'
-version = '1.7.3r-REMASTERED'
+group = 'lt.pokeclear.impl.FICorePokeClearImpl'
+version = '1.7.4r-REMASTERED-SNAPSHOT'
 
 
-subprojects {
-    apply plugin: 'java'
-
-    repositories {
-        mavenLocal()
-        mavenCentral()
-        maven {
-            name = 'spigotmc-repo'
-            url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
-        }
-        maven {
-            allowInsecureProtocol = true
-            url "http://qiyuan.figsq.top:31647/snapshots"
-        }
-        maven {
-            url = 'https://repo.minebench.de/'
-        }
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
     }
-
-    dependencies {
-        compileOnly 'me.clip:placeholderapi:2.10.3'
-
-        compileOnly 'me.fullidle.ficore.ficore:FICore:1.2.9'
-
-        compileOnly 'org.projectlombok:lombok:1.18.30'
-        annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    maven {
+        allowInsecureProtocol = true
+        url "http://localhost:31647/snapshots"
     }
-    if (project.name != 'common') {
-        var commonProject = project(':common') as Project
-
-        dependencies {
-            implementation commonProject
-        }
-
-        sourceSets {
-            main {
-                java.srcDirs += commonProject.sourceSets.main.java.srcDirs
-                resources.srcDirs += commonProject.sourceSets.main.resources.srcDirs
-            }
-        }
+    maven {
+        url = 'https://repo.minebench.de/'
     }
+}
 
-    processResources {
-        filteringCharset 'UTF-8'
-        filesMatching('plugin.yml') {
-            expand project.properties
-        }
-    }
+dependencies {
+    compileOnly 'me.clip:placeholderapi:2.10.3'
 
-    jar {
-        archiveBaseName = "${rootProject.name}-${project.name}"
-        version = rootProject.version
+    compileOnly 'org.spigotmc:spigot:1.12.2-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+
+    compileOnly 'me.fullidle.ficore.ficore:FICore:1.3.4-SNAPSHOT'
+
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+}
+
+processResources {
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand project.properties
     }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
